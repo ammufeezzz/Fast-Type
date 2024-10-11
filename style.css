@@ -149,31 +149,31 @@ div#game:focus{
     min-width: 750px;
     max-width: 1000px;
     border-radius: 20px;
-    padding: 20px; /* Reduced padding for compactness */
-    background: rgba(255, 255, 255, 0.1); /* Transparent background */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Border for clarity */
+    padding: 20px; 
+    background: rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
 }
 
 .wrapper .keys {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap; 
 }
 
 .wrapper .keys input {
-    height: 45px; /* Slightly reduced height */
-    width: 45px;  /* Set consistent width */
-    padding: 10px; /* Reduced padding */
-    margin: 5px;  /* Reduce margin to reduce empty space */
+    height: 45px; 
+    width: 45px;  
+    padding: 10px;
+    margin: 5px;  
     border-radius: 8px;
     outline: none;
-    border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle border */
-    font-size: 18px; /* Slightly smaller font for better fit */
+    border: 2px solid rgba(255, 255, 255, 0.3); 
+    font-size: 18px; 
     color: white;
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background for keys */
+    background: rgba(255, 255, 255, 0.1); 
     text-transform: uppercase;
-    letter-spacing: 1px; /* Slightly reduced letter-spacing */
+    letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 
@@ -181,18 +181,18 @@ div#game:focus{
 }
 
 .wrapper .keys input:hover {
-    background: rgba(255, 255, 255, 0.2); /* Slightly lighter on hover */
+    background: rgba(255, 255, 255, 0.2); 
     transform: scale(1.2);
 }
 
 .wrapper .keys input[value="space"] {
-    width: 35%; /* Smaller width for space key to fit better */
-    background: rgba(231, 60, 3, 0.2); /* Semi-transparent space key */
+    width: 35%; 
+    background: rgba(231, 60, 3, 0.2); 
     color: white;
 }
 
 .active{
-    background: lightblue;/* Slightly lighter on hover */
+    background: lightblue;
     transform: scale(1.2);
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6);
 
