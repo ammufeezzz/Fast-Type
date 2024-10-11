@@ -23,6 +23,8 @@ function formatword(word){
 
 }
 
+
+
 function newgame(){
     document.getElementById("words").innerHTML=""
     for(let i=0;i<200;i++){
@@ -32,10 +34,26 @@ function newgame(){
     addclass(document.querySelector(".letter"),"current")
 }
 
+
+
 function gameOver() {
     clearInterval(window.timer);
     addclass(document.getElementById('game'), 'over');
+    document.getElementById("info").innerHTML=`WPM: ${getWpm()}`
   }
+function getWpm() {
+    const words = [...document.querySelectorAll('.word')];
+    const lastTypedWord = document.querySelector('.word.current');
+    const lastTypedWordIndex = words.indexOf(lastTypedWord) + 1;
+    const typedWords = words.slice(0, lastTypedWordIndex);
+    const correctWords = typedWords.filter(word => {
+        const letters = [...word.children];
+        const incorrectLetters = letters.filter(letter => letter.className.includes('incorrect'));
+        const correctLetters = letters.filter(letter => letter.className.includes('correct'));
+        return incorrectLetters.length === 0 && correctLetters.length === letters.length;
+    });
+    return correctWords.length / gameTime * 60000;
+}
 
 document.getElementById("game").addEventListener("keyup", ev => {
     const key = ev.key; // The key that was pressed
@@ -147,6 +165,25 @@ document.getElementById("game").addEventListener("keyup", ev => {
     cursor.style.top = (nextletter || nextword).getBoundingClientRect().top + 2 + 'px';
     cursor.style.left = (nextletter || nextword).getBoundingClientRect()[nextletter ? 'left' : 'right'] + 'px';
 });
+
+document.addEventListener("keydown",(event)=>{
+    const keyPressed = event.key;
+    const button=document.querySelector(`input[value="${keyPressed}"]`)
+    if(button){
+        button.classList.add("active")
+    }
+    
+
+})
+
+document.addEventListener("keyup",(event)=>{
+    const keydown=event.key
+    const button=document.querySelector(`input[value="${keydown}"]`)
+    setTimeout(() => {
+        button.classList.remove('active');
+    }, 50); // Keep the effect for 100ms before removing
+})
+
 
 
 newgame()

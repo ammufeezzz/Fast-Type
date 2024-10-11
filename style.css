@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #2e2e2e;
     font-size: 1.4rem;
 }
@@ -44,6 +44,7 @@ button{
     padding: 5px 20px;
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 div.word{
@@ -53,22 +54,16 @@ div.word{
 }
 
 div#game {
-    line-height: 35px;
-    height: 105px;
+    line-height:35px;
+    height:105px;
     overflow: hidden;
     position: relative;
-    border: 5px solid rgba(255, 215, 0, 0.5); 
-    border-radius: 10px; 
-    padding: 10px; 
-    background-color: rgba(255, 255, 255, 0.1); 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
-    transition: all 0.3s ease; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-div#game:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 215, 0, 0.8);
-}
+
 
 
 #focus-error{
@@ -118,7 +113,7 @@ div#game:hover {
     background: goldenrod;
     position: fixed;
     top: 187px;
-    left: 10px;
+    left: 60px;
     animation: blink 0.3s infinite;
     display: none;
 }
@@ -143,6 +138,79 @@ div#game:focus{
 }
 #game.over #focus-error {
     display: none;
+}
+
+.container {
+    width: 60%;
+    
+}
+
+.container .wrapper {
+    min-width: 750px;
+    max-width: 1000px;
+    border-radius: 20px;
+    padding: 20px; /* Reduced padding for compactness */
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Border for clarity */
+}
+
+.wrapper .keys {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.wrapper .keys input {
+    height: 45px; /* Slightly reduced height */
+    width: 45px;  /* Set consistent width */
+    padding: 10px; /* Reduced padding */
+    margin: 5px;  /* Reduce margin to reduce empty space */
+    border-radius: 8px;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    font-size: 18px; /* Slightly smaller font for better fit */
+    color: white;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background for keys */
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Slightly reduced letter-spacing */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+
+}
+
+.wrapper .keys input:hover {
+    background: rgba(255, 255, 255, 0.2); /* Slightly lighter on hover */
+    transform: scale(1.2);
+}
+
+.wrapper .keys input[value="space"] {
+    width: 35%; /* Smaller width for space key to fit better */
+    background: rgba(231, 60, 3, 0.2); /* Semi-transparent space key */
+    color: white;
+}
+
+.active{
+    background: lightblue;/* Slightly lighter on hover */
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6);
+
+}
+
+.title{
+    color: aqua;
+    position: relative;
+    
+
+}
+
+.keyboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    flex-direction: column;
 }
 
 
