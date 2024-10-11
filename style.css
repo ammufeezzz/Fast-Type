@@ -1,0 +1,125 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: grey;
+    font-size: 1.4rem;
+}
+
+h1 {
+    color: goldenrod;
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    margin: 0;
+    font-size: 2em;
+}
+
+
+h1 svg {
+    width: 60px;
+    fill: goldenrod;
+    padding: 20px; 
+}
+
+#header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 6px 30px;
+}
+
+#buttons{
+    text-align: right;
+
+}
+
+#info{
+    color: goldenrod;
+    margin-left: 20px;
+    
+}
+
+button{
+    background:rgba(255,255,255,.2);
+    border:0;
+    color:whitesmoke;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+div.word{
+    display:inline-block;
+    margin: 0 5px;
+
+}
+
+div#game{
+    line-height: 35px;
+    height: 105px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+#focus-error{
+    position: absolute;
+    inset: 0;
+    color: white;
+    text-align: center;
+    padding-top: 35px;
+}
+
+#words{
+    filter: blur(5px);
+    color: lightgray;
+
+}
+
+#game:focus #words{
+    filter: blur(0px);
+}
+
+#game:focus #focus-error{
+    display: none;
+}
+
+.letter.correct{
+    color: white;
+}
+.letter.incorrect{
+    color: red;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#cursor{
+    width: 2px;
+    height: 1.6rem;
+    background: goldenrod;
+    position: fixed;
+    top: 187px;
+    left: 10px;
+    animation: blink 0.3s infinite;
+    display: none;
+}
+
+#game:focus #cursor{
+    display: block;
+}
+
+div#game:focus{
+    outline: 0;
+}
+
+
+
+
