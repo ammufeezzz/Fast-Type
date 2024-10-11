@@ -57,17 +57,17 @@ div#game {
     height: 105px;
     overflow: hidden;
     position: relative;
-    border: 5px solid rgba(255, 215, 0, 0.5); /* Softer border color */
-    border-radius: 10px; /* Increased border radius for smoother corners */
-    padding: 10px; /* Added padding for better spacing */
-    background-color: rgba(255, 255, 255, 0.1); /* Subtle background color for contrast */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
-    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    border: 5px solid rgba(255, 215, 0, 0.5); 
+    border-radius: 10px; 
+    padding: 10px; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
 }
 
 div#game:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-    border-color: rgba(255, 215, 0, 0.8); /* Slightly darker border on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 215, 0, 0.8);
 }
 
 
