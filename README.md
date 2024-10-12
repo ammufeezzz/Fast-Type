@@ -4,7 +4,7 @@ This project is part of WEC GDG Rec's 2024.<br>
 **YT LINK:**
 - https://youtu.be/UO4bD8eRme8?si=H1NqGyQQ6Xoh0JGF <br>
 
-Stack Used:HTML,CSS,JS,NODE,POSTGRES,EXPRESS. <br>
+Stack Used:EJS,CSS,JS,NODE,POSTGRES,EXPRESS. <br>
 
 
 **How to Get started**
