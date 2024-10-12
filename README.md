@@ -1,4 +1,37 @@
-![image](https://github.com/user-attachments/assets/a1c3f2f6-ede6-482c-a67d-214850cdf8a6)
-1)This is the UI, the user is given random words to type along with a coupled keyboard animation, after the 30 seocnds are over it gives the wpm.
-2)The analytics shown to user:![image](https://github.com/user-attachments/assets/260bcbbe-5b8b-499a-9613-cef5149ea470)
+Project:**FastType**
+This project is part of WEC GDG Rec's 2024.
+Stack Used:HTML,CSS,JS,NODE,POSTGRES,EXPRESS.
+
+**How to Get started**
+- Node.js 
+- PostgreSQL
+
+### Clone the Repository
+git clone https://github.com/yourusername/Fast-Type.git
+cd Fast-Type
+
+1)**Install dependencies**:
+npm i
+2)**Set Up the Database**:
+*Create a new PostgreSQL database.
+*Update your database connection settings in the backend JavaScript file (make sure to provide the necessary credentials).
+*Create the required tables in your database. You can use the following SQL command as a reference:
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) 
+);
+
+CREATE TABLE wpmrecords (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    wpm INTEGER NOT NULL
+);
+
+3)**Start the Application**
+node/nodemon server.js
+
+
+
 
