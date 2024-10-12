@@ -53,7 +53,7 @@ node/nodemon server.js
 Click on the username, this will direct to the analytics page.
 ![image](https://github.com/user-attachments/assets/d77fa70d-5d00-48be-8f1c-fea99c99939c)
 
-P.S.: I couldn't implemented the leaderboard yet, but I have a plan for it and will definitely tackle it in the future. I'm also looking forward to learning Socket.IO! Thank you for the opportunity; without this experience, I might have delayed learning about databases and authorization. It has been a valuable learning journey.
+P.S.: I haven't implemented the leaderboard yet, but I have a plan for it and will definitely tackle it in the future. I'm also looking forward to learning Socket.IO! Thank you for the opportunity; without this experience, I might have delayed learning about databases and authorization. It has been a valuable learning journey.
 
 
 
