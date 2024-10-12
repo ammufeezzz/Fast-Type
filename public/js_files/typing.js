@@ -206,8 +206,9 @@ document.addEventListener("keyup",(event)=>{
 })
 
 function displayResults() {
-    console.log("displayResults function called");
-    console.log("WPM data:", wpmdata);
+
+    const username=document.getElementById("username").innerHTML
+
 
     // Clear the existing content
     const textContainer = document.querySelector('.text-container');
@@ -230,6 +231,21 @@ function displayResults() {
 
     // WPM and accuracy 
     const { wpm, accuracy } = getWpm();
+    fetch('/save-wpm', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, wpm })
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('WPM saved successfully!');
+        } else {
+            console.error('Error saving WPM:', response.statusText);
+        }
+    })
+    .catch((error) => console.error('Error:', error));
 
     // stats div
     const statsDiv = document.createElement('div');
@@ -284,6 +300,7 @@ function displayResults() {
         }
     });
 }
+
 
 
 

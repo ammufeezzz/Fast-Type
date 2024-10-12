@@ -1,0 +1,77 @@
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  margin: 0;
+  padding: 20px; 
+}
+
+.profile-container {
+  background-color: #2c2c2c;
+  border-radius: 8px;
+  padding: 40px; 
+  width: 100%; 
+  max-width: 800px; 
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.profile-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; 
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  border: 2px solid #ccc;
+}
+
+.avatar svg {
+  width: 60%;
+  height: 60%;
+}
+
+.user-info {
+  flex-grow: 1;
+}
+
+.username {
+  font-size: 24px; 
+  font-weight: bold;
+  margin-bottom: 15px; 
+  color: goldenrod;
+}
+
+.user-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px; 
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 5px; 
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 14px; 
+}
+

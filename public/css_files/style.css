@@ -4,6 +4,17 @@ body {
     font-size: 1.4rem;
 }
 
+#username {
+    color: #666; 
+    font-size: 0.5em; 
+    display: flex;                
+    align-items: center;          
+    margin-left: auto; 
+    padding: 20px;
+}
+
+
+
 h1 {
     color: goldenrod;
     display: flex;
@@ -45,6 +56,7 @@ button{
     border-radius: 5px;
     cursor: pointer;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-right: 20px;
 }
 
 div.word{
