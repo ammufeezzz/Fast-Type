@@ -8,10 +8,10 @@ Stack Used:HTML,CSS,JS,NODE,POSTGRES,EXPRESS.
 
 ### Clone the Repository
 git clone https://github.com/yourusername/Fast-Type.git
-cd Fast-Type
+cd Fast-Type<br>
 
 1)**Install dependencies**:
-npm i
+npm i<br>
 2)**Set Up the Database**:
 *Create a new PostgreSQL database.
 *Update your database connection settings in the backend JavaScript file (make sure to provide the necessary credentials).
@@ -27,7 +27,7 @@ CREATE TABLE wpmrecords (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id),
     wpm INTEGER NOT NULL
-);
+);<br>
 
 3)**Start the Application**
 node/nodemon server.js
