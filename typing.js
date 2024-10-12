@@ -25,6 +25,7 @@ function formatword(word){
 
 
 
+
 function newgame(){
     document.getElementById("words").innerHTML=""
     for(let i=0;i<200;i++){
@@ -39,21 +40,35 @@ function newgame(){
 function gameOver() {
     clearInterval(window.timer);
     addclass(document.getElementById('game'), 'over');
-    document.getElementById("info").innerHTML=`WPM: ${getWpm()}`
-  }
+    console.log("Game Over function called");
+    displayResults();
+}
 function getWpm() {
     const words = [...document.querySelectorAll('.word')];
     const lastTypedWord = document.querySelector('.word.current');
     const lastTypedWordIndex = words.indexOf(lastTypedWord) + 1;
     const typedWords = words.slice(0, lastTypedWordIndex);
+    let totalLettersTyped = 0;
+    let correctLettersCount = 0;
     const correctWords = typedWords.filter(word => {
         const letters = [...word.children];
         const incorrectLetters = letters.filter(letter => letter.className.includes('incorrect'));
         const correctLetters = letters.filter(letter => letter.className.includes('correct'));
+        totalLettersTyped+=letters.length
+        correctLettersCount+=correctLetters.length
+
+
         return incorrectLetters.length === 0 && correctLetters.length === letters.length;
     });
-    return correctWords.length / gameTime * 60000;
+    const accuracy=(correctLettersCount/totalLettersTyped)*100
+
+    const userwpm= correctWords.length / gameTime * 60000;
+    return { wpm: Math.round(userwpm),
+        accuracy: Math.round(accuracy)}
 }
+
+const wpmdata=[]
+const accuracydata=[]
 
 document.getElementById("game").addEventListener("keyup", ev => {
     const key = ev.key; // The key that was pressed
@@ -80,11 +95,17 @@ document.getElementById("game").addEventListener("keyup", ev => {
           const msPassed = currentTime - window.gameStart;
           const sPassed = Math.round(msPassed / 1000);
           const sLeft = Math.round((gameTime / 1000) - sPassed);
-          if (sLeft < 0) {
+          document.getElementById('info').innerHTML = sLeft + '';
+
+          if (sLeft <= 0) {
             gameOver();
             return;
           }
-          document.getElementById('info').innerHTML = sLeft + '';
+
+          const {wpm,accuracy}=getWpm()
+          wpmdata.push(wpm)
+          accuracydata.push(accuracy)
+
         }, 1000);
     }
 
@@ -181,8 +202,90 @@ document.addEventListener("keyup",(event)=>{
     const button=document.querySelector(`input[value="${keydown}"]`)
     setTimeout(() => {
         button.classList.remove('active');
-    }, 50); // Keep the effect for 100ms before removing
+    }, 50); 
 })
+
+function displayResults() {
+    console.log("displayResults function called");
+    console.log("WPM data:", wpmdata);
+
+    // Clear the existing content
+    const textContainer = document.querySelector('.text-container');
+    textContainer.innerHTML = '';
+    textContainer.classList.add('centered');
+
+    // Create a canvas for the chart
+    const canvas = document.createElement('canvas');
+    canvas.id = 'wpmChart';
+    textContainer.appendChild(canvas);
+
+    document.getElementById('game').style.display = 'none';
+    document.querySelector('.keyboard').style.display = 'none';
+    textContainer.style.display = 'flex';
+    document.getElementById('info').innerHTML = "";
+
+    const chartAndStats = document.createElement('div');
+    chartAndStats.classList.add('chart-and-stats');
+    textContainer.appendChild(chartAndStats);
+
+    // WPM and accuracy 
+    const { wpm, accuracy } = getWpm();
+
+    // stats div
+    const statsDiv = document.createElement('div');
+    statsDiv.classList.add('stats');
+    chartAndStats.appendChild(statsDiv);
+
+    // WPM and accuracy stats
+    const wpmStat = document.createElement('p');
+    wpmStat.classList.add('wpm-stat');
+    wpmStat.innerHTML = `<span class="large">${wpm}</span> WPM`;
+    statsDiv.appendChild(wpmStat);
+
+    const accuracyStat = document.createElement('p');
+    accuracyStat.classList.add('accuracy-stat');
+    accuracyStat.innerHTML = `<span class="large">${accuracy}%</span> ACC`;
+    statsDiv.appendChild(accuracyStat);
+
+    // Labels for each second of the test (based on elapsed time)
+    const labels = Array.from({ length: 30 }, (_, i) => i + 1);
+
+    // WPM Chart
+    const ctx = document.getElementById('wpmChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'WPM Over Time',
+                data: wpmdata,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2,
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Time (seconds)'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Words Per Minute'
+                    }
+                }
+            }
+        }
+    });
+}
+
+
 
 
 
